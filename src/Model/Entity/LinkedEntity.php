@@ -8,14 +8,12 @@ use Cake\ORM\Entity;
  *
  * @property string $id
  * @property string $user_id
- * @property int $selectable_type
+ * @property int $type
  * @property string $foreign_model
  * @property string $foreign_key
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  * @property \Cake\I18n\FrozenTime $deleted
- *
- * @property \LinkedEntities\Model\Entity\User $user
  */
 class LinkedEntity extends Entity
 {
@@ -31,12 +29,11 @@ class LinkedEntity extends Entity
      */
     protected $_accessible = [
         'user_id' => true,
-        'selectable_type' => true,
+        'type' => true,
         'foreign_model' => true,
         'foreign_key' => true,
         'created' => true,
         'modified' => true,
-        'deleted' => true,
-        'user' => true
+        'deleted' => true
     ];
 }

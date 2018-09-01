@@ -1,21 +1,22 @@
 <?php
 namespace LinkedEntities\Test\TestCase\Model\Entity;
 
+use Cake\ORM\Entity;
 use Cake\TestSuite\TestCase;
-use LinkedEntities\Model\Entity\LinkedEntities;
+use LinkedEntities\Model\Entity\LinkedEntity;
 
 /**
- * LinkedEntities\Model\Entity\LinkedEntities Test Case
+ * LinkedEntities\Model\Entity\LinkedEntity Test Case
  */
-class LinkedEntitiesTest extends TestCase
+class LinkedEntityTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \LinkedEntities\Model\Entity\LinkedEntities
+     * @var \LinkedEntities\Model\Entity\LinkedEntity
      */
-    public $LinkedEntities;
+    public $LinkedEntity;
 
     /**
      * setUp method
@@ -25,7 +26,7 @@ class LinkedEntitiesTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->LinkedEntities = new LinkedEntities();
+        $this->LinkedEntity = new LinkedEntity();
     }
 
     /**
@@ -35,7 +36,7 @@ class LinkedEntitiesTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->LinkedEntities);
+        unset($this->LinkedEntity);
 
         parent::tearDown();
     }
@@ -47,6 +48,6 @@ class LinkedEntitiesTest extends TestCase
      */
     public function testInitialization()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->assertInstanceOf(Entity::class, $this->LinkedEntity);
     }
 }
