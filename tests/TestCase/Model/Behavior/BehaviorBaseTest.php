@@ -1,8 +1,9 @@
 <?php
+
 namespace LinkedEntities\Test\TestCase\Model\Behavior;
 
-use Cake\TestSuite\TestCase;
 use LinkedEntities\Model\Behavior\BehaviorBase;
+use LinkedEntities\TestSuite\TestCase;
 
 /**
  * LinkedEntities\Model\Behavior\BehaviorBase Test Case
@@ -11,21 +12,19 @@ class BehaviorBaseTest extends TestCase
 {
 
     /**
-     * Test subject
      *
-     * @var \LinkedEntities\Model\Behavior\BehaviorBase
+     * @var BehaviorBase | \PHPUnit_Framework_MockObject_MockObject
      */
     public $BehaviorBase;
 
-    /**
-     * setUp method
-     *
-     * @return void
-     */
     public function setUp()
     {
         parent::setUp();
-        $this->BehaviorBase = new BehaviorBase();
+
+        $this->BehaviorBase = $this->getMockForAbstractClass(
+            BehaviorBase::class,
+            [$this->UsersTable, $this->behavior_config]
+        );
     }
 
     /**
@@ -41,12 +40,16 @@ class BehaviorBaseTest extends TestCase
     }
 
     /**
-     * Test initialize method
+     * Test tests initialize method properly merges config data
      *
      * @return void
      */
-    public function testInitialize()
+    public function testInitializeProperlyMergesConfigData()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        $passed_link_data = $this->behavior_config['links'];
+        $original_user_model = $this->default_config['UserModel'];
+
+        $this->assertSame($passed_link_data, $this->BehaviorBase->getConfig('links'));
+        $this->assertNotSame($original_user_model, $this->BehaviorBase->getConfig('UserModel'));
     }
 }
