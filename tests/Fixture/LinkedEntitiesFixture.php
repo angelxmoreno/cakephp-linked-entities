@@ -51,14 +51,14 @@ class LinkedEntitiesFixture extends TestFixture
     {
         $this->records = [
             [
-                'id' => '97cbada7-f4c4-40b5-83c5-f9f4a3ad993b',
-                'user_id' => 'eee6ad89-a660-4ec2-8a57-f8f2b9a1f211',
+                'id' => 'c83b8bed-9d9b-41a0-a20d-cbc9d4ea36e9',
+                'user_id' => 'b1572216-9ac9-42c8-97af-452f15b403e7',
                 'type' => 1,
                 'foreign_model' => 'Lorem ipsum dolor sit amet',
-                'foreign_key' => 'b4b50a81-c067-48c1-8f6b-4b29c17acd8a',
-                'created' => '2018-08-28 03:36:34',
-                'modified' => '2018-08-28 03:36:34',
-                'deleted' => '2018-08-28 03:36:34'
+                'foreign_key' => '53d6d0fc-f2ad-4575-b31b-98e9421eb611',
+                'created' => '2018-08-31 21:27:39',
+                'modified' => '2018-08-31 21:27:39',
+                'deleted' => '2018-08-31 21:27:39'
             ],
         ];
         parent::init();
