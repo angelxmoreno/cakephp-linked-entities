@@ -4,38 +4,30 @@ namespace LinkedEntities\Model\Behavior;
 
 use Cake\Core\Configure;
 use Cake\ORM\Behavior;
+use LinkedEntities\Helpers\ArrayTemplate;
 
 /**
  * Class BehaviorBase
  * @package LinkedEntities\Model\Behavior
  */
-class BehaviorBase extends Behavior
+abstract class BehaviorBase extends Behavior
 {
-    public function initialize(array $config)
+    public function initialize(array $config_runtime)
     {
-        $config = Configure::read('LinkedEntities');
+        $config_app = Configure::read('LinkedEntities');
+        $config = array_merge($config_app, $config_runtime);
         $this->setConfig($config);
     }
 
     protected function buildUserBelongToManyAssociationOptions(array $replacements)
     {
-        return $this->replaceArrayTemplate($replacements, $this->getConfig('user_association'));
+        return ArrayTemplate::replace($this->getConfig('user_association'), $replacements);
     }
 
     protected function buildEntityBelongToManyAssociationOptions(array $replacements)
     {
         $replacements['UserModel'] = $this->getConfig('UserModel');
 
-        return $this->replaceArrayTemplate($replacements, $this->getConfig('entity_association'));
-    }
-
-    protected function replaceArrayTemplate(array $replacements, array $data)
-    {
-        $json = json_encode($data);
-        foreach ($replacements as $key => $val) {
-            $json = str_replace("{{{$key}}}", $val, $json);
-        }
-
-        return json_decode($json, true);
+        return ArrayTemplate::replace($this->getConfig('entity_association'), $replacements);
     }
 }
