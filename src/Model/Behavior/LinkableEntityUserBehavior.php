@@ -99,7 +99,7 @@ class LinkableEntityUserBehavior extends BehaviorBase
         $user->isDirty(self::MODEL_PROPERTY);
     }
 
-    protected function isValidAlias(string $modelAlias) : bool
+    protected function isValidAlias($modelAlias)
     {
         return in_array($modelAlias, array_keys($this->getConfig('links')));
     }
