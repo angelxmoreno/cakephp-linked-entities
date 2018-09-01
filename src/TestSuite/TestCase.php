@@ -6,6 +6,7 @@ use Cake\Core\Configure;
 use Cake\ORM\Table;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase as CakeTestCase;
+use LinkedEntities\Model\Table\LinkedEntitiesTable;
 
 /**
  * Class TestCase
@@ -16,11 +17,28 @@ class TestCase extends CakeTestCase
     const PLUGIN_NAME = 'LinkedEntities';
     const USER_BEHAVIOR = 'LinkableEntityUser';
     const USER_BEHAVIOR_NAME = self::PLUGIN_NAME . '.' . self::USER_BEHAVIOR;
+    const ENTITY_BEHAVIOR = 'LinkableEntity';
+    const ENTITY_BEHAVIOR_NAME = self::PLUGIN_NAME . '.' . self::ENTITY_BEHAVIOR;
+
+    /**
+     * Fixtures to load.
+     *
+     * @var array
+     */
+    public $fixtures = [
+        'plugin.LinkedEntities.users',
+        'plugin.LinkedEntities.linked_entities',
+    ];
 
     /**
      * @var Table
      */
     protected $UsersTable;
+
+    /**
+     * @var LinkedEntitiesTable
+     */
+    protected $LinkedEntitiesTable;
 
     /**
      * @var
@@ -58,14 +76,15 @@ class TestCase extends CakeTestCase
 
         $this->default_config = Configure::read('LinkedEntities');
         $this->UsersTable = TableRegistry::getTableLocator()->get('Users');
+        $this->LinkedEntitiesTable = TableRegistry::getTableLocator()->get('Users');
     }
 
     public function tearDown()
     {
+        unset($this->default_config);
         unset($this->UsersTable);
-        unset($this->behavior_config);
+        unset($this->LinkedEntitiesTable);
 
         parent::tearDown();
     }
-
 }

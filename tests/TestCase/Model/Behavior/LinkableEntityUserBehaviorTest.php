@@ -1,31 +1,26 @@
 <?php
+
 namespace LinkedEntities\Test\TestCase\Model\Behavior;
 
-use Cake\TestSuite\TestCase;
 use LinkedEntities\Model\Behavior\LinkableEntityUserBehavior;
+use LinkedEntities\TestSuite\TestCase;
 
 /**
- * LinkedEntities\Model\Behavior\LinkableEntityUserBehavior Test Case
+ * Class LinkableEntityUserBehaviorTest
+ * @package LinkedEntities\Test\TestCase\Model\Behavior
  */
 class LinkableEntityUserBehaviorTest extends TestCase
 {
-
     /**
-     * Test subject
-     *
-     * @var \LinkedEntities\Model\Behavior\LinkableEntityUserBehavior
+     * @var LinkableEntityUserBehavior
      */
     public $LinkableEntityUserBehavior;
 
-    /**
-     * setUp method
-     *
-     * @return void
-     */
     public function setUp()
     {
         parent::setUp();
-        $this->LinkableEntityUserBehavior = new LinkableEntityUserBehavior();
+        $this->UsersTable->addBehavior(self::USER_BEHAVIOR_NAME, $this->behavior_config);
+        $this->LinkableEntityUserBehavior = $this->UsersTable->getBehavior(self::USER_BEHAVIOR);
     }
 
     /**
@@ -36,18 +31,7 @@ class LinkableEntityUserBehaviorTest extends TestCase
     public function tearDown()
     {
         unset($this->LinkableEntityUserBehavior);
-
         parent::tearDown();
-    }
-
-    /**
-     * Test initialize method
-     *
-     * @return void
-     */
-    public function testInitialize()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
     }
 
     /**
