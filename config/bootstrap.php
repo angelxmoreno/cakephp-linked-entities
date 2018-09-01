@@ -36,5 +36,5 @@ $defaults = [
 ];
 
 $config = Configure::read('LinkedEntities', []);
-
 Configure::write('LinkedEntities', array_merge($defaults, $config));
+
