@@ -34,13 +34,20 @@ class LinkableEntityUserBehavior extends BehaviorBase
         }
     }
 
-    protected function associateModelAliasToUser(string $modelAlias, array $linkOptions)
+    /**
+     * @param string $modelAlias
+     * @param array $linkOptions
+     */
+    protected function associateModelAliasToUser($modelAlias, array $linkOptions)
     {
         $association_options = $this->buildUserBelongToManyAssociationOptions($linkOptions);
         $this->getTable()->belongsToMany($modelAlias, $association_options);
     }
 
-    protected function injectModelAliasMethods(string $modelAlias)
+    /**
+     * @param string $modelAlias
+     */
+    protected function injectModelAliasMethods($modelAlias)
     {
         foreach (self::METHOD_PREFIXES as $prefix) {
             $method = $prefix . $modelAlias;
@@ -48,7 +55,11 @@ class LinkableEntityUserBehavior extends BehaviorBase
         }
     }
 
-    public function __call($name, $arguments)
+    /**
+     * @param string $name
+     * @param array $arguments
+     */
+    public function __call($name, array $arguments)
     {
         $prefix = $this->getMethodPrefix($name);
         $modelAlias = str_replace($prefix, '', $name);
@@ -63,6 +74,11 @@ class LinkableEntityUserBehavior extends BehaviorBase
         }
     }
 
+    /**
+     * @param string $modelAlias
+     * @param Entity $user
+     * @param Entity $entity
+     */
     public function addEntityLink($modelAlias, Entity $user, Entity $entity)
     {
         if (!$this->isValidAlias($modelAlias)) {
@@ -82,6 +98,11 @@ class LinkableEntityUserBehavior extends BehaviorBase
         $user->setDirty(self::MODEL_PROPERTY);
     }
 
+    /**
+     * @param string $modelAlias
+     * @param Entity $user
+     * @param Entity $entity
+     */
     public function removeEntityLink($modelAlias, Entity $user, Entity $entity)
     {
         if (!$this->isValidAlias($modelAlias)) {
@@ -99,11 +120,21 @@ class LinkableEntityUserBehavior extends BehaviorBase
         $user->isDirty(self::MODEL_PROPERTY);
     }
 
+    /**
+     * @param string $modelAlias
+     * @return bool
+     */
     protected function isValidAlias($modelAlias)
     {
         return in_array($modelAlias, array_keys($this->getConfig('links')));
     }
 
+    /**
+     * @param string $modelAlias
+     * @param Entity $user
+     * @param Entity $entity
+     * @return array
+     */
     protected function buildLinkedEntity($modelAlias, Entity $user, Entity $entity)
     {
         return [
@@ -114,6 +145,10 @@ class LinkableEntityUserBehavior extends BehaviorBase
         ];
     }
 
+    /**
+     * @param string $method
+     * @return string
+     */
     protected function getMethodPrefix($method)
     {
         list($prefix) = explode('_', Inflector::tableize($method));
