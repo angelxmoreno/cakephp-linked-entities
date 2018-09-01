@@ -26,7 +26,10 @@ after_success:
 
 after_script:
   - echo "Running AfterScript"
+  - echo "Sending coverage report to CodeClimate"
   - ./vendor/bin/test-reporter --coverage-report=tmp/coverage/coverage.xml
+  - echo "Sending coverage report to Codacy"
+  - ./vendor/bin/codacycoverage clover tmp/coverage/coverage.xml
 
 matrix:
   fast_finish: true
