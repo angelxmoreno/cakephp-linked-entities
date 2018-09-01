@@ -1,9 +1,10 @@
 <?php
+
 namespace LinkedEntities\Test\TestCase\Model\Entity;
 
 use Cake\ORM\Entity;
-use Cake\TestSuite\TestCase;
 use LinkedEntities\Model\Entity\LinkedEntity;
+use LinkedEntities\TestSuite\TestCase;
 
 /**
  * LinkedEntities\Model\Entity\LinkedEntity Test Case

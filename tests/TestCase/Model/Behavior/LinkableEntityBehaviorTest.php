@@ -1,31 +1,27 @@
 <?php
+
 namespace LinkedEntities\Test\TestCase\Model\Behavior;
 
-use Cake\TestSuite\TestCase;
 use LinkedEntities\Model\Behavior\LinkableEntityBehavior;
+use LinkedEntities\TestSuite\TestCase;
 
 /**
- * LinkedEntities\Model\Behavior\LinkableEntityBehavior Test Case
+ * Class LinkableEntityBehaviorTest
+ * @package LinkedEntities\Test\TestCase\Model\Behavior
  */
 class LinkableEntityBehaviorTest extends TestCase
 {
 
     /**
-     * Test subject
-     *
-     * @var \LinkedEntities\Model\Behavior\LinkableEntityBehavior
+     * @var LinkableEntityBehavior
      */
     public $LinkableEntityBehavior;
 
-    /**
-     * setUp method
-     *
-     * @return void
-     */
     public function setUp()
     {
         parent::setUp();
-        $this->LinkableEntityBehavior = new LinkableEntityBehavior();
+        $this->UsersTable->addBehavior(self::ENTITY_BEHAVIOR_NAME, $this->behavior_config);
+        $this->LinkableEntityBehavior = $this->UsersTable->getBehavior(self::ENTITY_BEHAVIOR);
     }
 
     /**

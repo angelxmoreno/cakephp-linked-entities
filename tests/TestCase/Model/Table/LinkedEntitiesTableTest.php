@@ -1,9 +1,8 @@
 <?php
+
 namespace LinkedEntities\Test\TestCase\Model\Table;
 
-use Cake\ORM\TableRegistry;
-use Cake\TestSuite\TestCase;
-use LinkedEntities\Model\Table\LinkedEntitiesTable;
+use LinkedEntities\TestSuite\TestCase;
 
 /**
  * LinkedEntities\Model\Table\LinkedEntitiesTable Test Case
@@ -14,42 +13,9 @@ class LinkedEntitiesTableTest extends TestCase
     /**
      * Test subject
      *
-     * @var \LinkedEntities\Model\Table\LinkedEntitiesTable
+     * @var LinkedEntitiesTable
      */
-    public $LinkedEntities;
-
-    /**
-     * Fixtures
-     *
-     * @var array
-     */
-    public $fixtures = [
-        'plugin.linked_entities.linked_entities'
-    ];
-
-    /**
-     * setUp method
-     *
-     * @return void
-     */
-    public function setUp()
-    {
-        parent::setUp();
-        $config = TableRegistry::getTableLocator()->exists('LinkedEntities') ? [] : ['className' => LinkedEntitiesTable::class];
-        $this->LinkedEntities = TableRegistry::getTableLocator()->get('LinkedEntities', $config);
-    }
-
-    /**
-     * tearDown method
-     *
-     * @return void
-     */
-    public function tearDown()
-    {
-        unset($this->LinkedEntities);
-
-        parent::tearDown();
-    }
+    public $LinkedEntitiesTable;
 
     /**
      * Test initialize method
