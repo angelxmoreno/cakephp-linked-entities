@@ -1,5 +1,5 @@
 # LinkedEntities plugin for CakePHP 3.x
-
+[![Build Status](https://travis-ci.com/angelxmoreno/cakephp-linked-entities.svg?branch=master)](https://travis-ci.com/angelxmoreno/cakephp-linked-entities)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ce5001ca6c6d9eddaff1/maintainability)](https://codeclimate.com/github/angelxmoreno/cakephp-linked-entities/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/ce5001ca6c6d9eddaff1/test_coverage)](https://codeclimate.com/github/angelxmoreno/cakephp-linked-entities/test_coverage)
 # IN development - coming real soon!
