@@ -49,7 +49,7 @@
   "scripts": {
     "test": "phpunit",
     "tests:clover": "phpunit --coverage-clover tmp/coverage/coverage.xml",
-    "cs-check": "phpcs -p --standard=vendor/fig-r/psr2r-sniffer/PSR2R/ruleset.xml --ignore=/vendor/,/tmp/,/logs/ --extensions=php ./",
-    "cs-fix": "phpcbf -v --standard=vendor/fig-r/psr2r-sniffer/PSR2R/ruleset.xml --ignore=/vendor/,/tmp/,/logs/ --extensions=php ./"
+    "cs-check": "phpcs -p --standard=psr12 --ignore=/vendor/,/tmp/,/logs/ --extensions=php ./",
+    "cs-fix": "phpcbf -v --standard=psr12 --ignore=/vendor/,/tmp/,/logs/ --extensions=php ./"
   }
 }
