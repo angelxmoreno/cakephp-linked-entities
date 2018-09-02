@@ -48,8 +48,9 @@
   "prefer-stable": true,
   "scripts": {
     "test": "phpunit",
-    "tests:clover": "phpunit --coverage-clover tmp/coverage/coverage.xml",
-    "cs-check": "phpcs -p --standard=psr12 --ignore=/vendor/,/tmp/,/logs/ --extensions=php ./",
-    "cs-fix": "phpcbf -v --standard=psr12 --ignore=/vendor/,/tmp/,/logs/ --extensions=php ./"
+    "tests:clover": "phpunit --colors --coverage-clover tmp/coverage/coverage.xml",
+    "cs:check": "phpcs --standard=ruleset.xml",
+    "cs:fix": "phpcbf -v --standard=ruleset.xml",
+    "md:check": "phpmd . text phpmd.xml --exclude /vendor/,/tmp/,/logs/ --suffixes php --colors"
   }
 }
