@@ -42,7 +42,7 @@ Plugin::load('LinkedEntities', ['bootstrap' => true]);
 ```
 
 ## Setup
-1. In your `config/app.php` define a new config key called `LinkedEntities` ( see [configuration](##configuration) )
+1. In your `config/app.php` define a new config key called `LinkedEntities` ( see [configuration](#configuration) )
 2. In your UsersTable add the `LinkedEntities.LinkableEntityUser` behavior like so:
 ```php
 $this->addBehavior('LinkedEntities.LinkableEntityUser');
@@ -87,7 +87,7 @@ A string defining the plugin.name of your UsersTable ( defaults to `Users` )
 #### link_types
 An array as a int => string ( this saves the int provided under the table column `type` )
 
-### links
+#### links
 An array as relationship name => settings
 Settings have the following keys
  - name: The name of the relationship from the perspective of the linked entity ( the reverse relationship name )
