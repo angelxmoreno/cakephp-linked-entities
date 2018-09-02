@@ -41,6 +41,13 @@ Next you need to [load the plugin](http://book.cakephp.org/3.0/en/plugins.html#l
 Plugin::load('LinkedEntities', ['bootstrap' => true]);
 ```
 
+Finally, create the required tables using `cakephp/migrations`:
+```bash
+bin/cake migrations migrate -p LinkedEntities
+```
+
+Or import the sql schema found in `config/schema`.
+
 ## Setup
 1. In your `config/app.php` define a new config key called `LinkedEntities` ( see [configuration](#configuration) )
 2. In your UsersTable add the `LinkedEntities.LinkableEntityUser` behavior like so:
