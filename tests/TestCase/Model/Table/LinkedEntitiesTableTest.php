@@ -2,6 +2,7 @@
 
 namespace LinkedEntities\Test\TestCase\Model\Table;
 
+use LinkedEntities\Model\Table\LinkedEntitiesTable;
 use LinkedEntities\TestSuite\TestCase;
 
 /**

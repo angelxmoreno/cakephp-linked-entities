@@ -2,12 +2,14 @@
 
 namespace LinkedEntities\Test\TestCase\Model\Behavior;
 
+use LinkedEntities\Model\Behavior\BehaviorBase;
 use LinkedEntities\Model\Behavior\LinkableEntityBehavior;
 use LinkedEntities\TestSuite\TestCase;
 
 /**
  * Class LinkableEntityBehaviorTest
  * @package LinkedEntities\Test\TestCase\Model\Behavior
+ * @SuppressWarnings(PHPMD.LongVariable)
  */
 class LinkableEntityBehaviorTest extends TestCase
 {
@@ -20,8 +22,8 @@ class LinkableEntityBehaviorTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->UsersTable->addBehavior(self::ENTITY_BEHAVIOR_NAME, $this->behavior_config);
-        $this->LinkableEntityBehavior = $this->UsersTable->getBehavior(self::ENTITY_BEHAVIOR);
+        $this->UsersTable->addBehavior(BehaviorBase::ENTITY_BEHAVIOR_NAME, $this->behavior_config);
+        $this->LinkableEntityBehavior = $this->UsersTable->getBehavior(BehaviorBase::ENTITY_BEHAVIOR);
     }
 
     /**
