@@ -26,11 +26,13 @@
     "ext-json": "^1"
   },
   "require-dev": {
-    "phpunit/phpunit": "7.2",
+    "phpunit/phpunit": "^5.4|^6.0",
     "cakephp/cakephp": "^3.5",
     "squizlabs/php_codesniffer": "^3.3",
     "codeclimate/php-test-reporter": "^0.4.4",
-    "codacy/coverage": "^1.4"
+    "codacy/coverage": "^1.4",
+    "phpmd/phpmd": "^2.6",
+    "cakephp/cakephp-codesniffer": "^3.0"
   },
   "autoload": {
     "psr-4": {

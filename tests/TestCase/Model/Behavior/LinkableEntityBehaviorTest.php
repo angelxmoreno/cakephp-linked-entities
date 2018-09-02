@@ -9,6 +9,7 @@ use LinkedEntities\TestSuite\TestCase;
 /**
  * Class LinkableEntityBehaviorTest
  * @package LinkedEntities\Test\TestCase\Model\Behavior
+ * @SuppressWarnings(PHPMD.LongVariable)
  */
 class LinkableEntityBehaviorTest extends TestCase
 {
