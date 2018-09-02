@@ -81,6 +81,14 @@ Sample configuration:
     ]
 ]
 ```
+With the configuration above ( after adding the behavior ) you will have 6 new methods available to your UsersTable:
+1. $this->Users->addStarredProjects($user, $project);
+2. $this->Users->removeStarredProjects($user, $project);
+3. $this->Users->addFollowedProjects($user, $project);
+4. $this->Users->removeFollowedProjects($user, $project);
+5. $this->Users->addFollowedUsers($user, $otherUser);
+6. $this->Users->removeFollowedUsers($user, otherUser);
+
 #### UserModel parameter
 A string defining the plugin.name of your UsersTable ( defaults to `Users` )
 
