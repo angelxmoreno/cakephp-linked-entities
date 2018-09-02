@@ -4,4 +4,4 @@ if (!defined('ROOT')) {
     require __DIR__ . '/../vendor/cakephp/cakephp/tests/bootstrap.php';
 }
 
-require __DIR__ .'/../config/bootstrap.php';
+require __DIR__ . '/../config/bootstrap.php';

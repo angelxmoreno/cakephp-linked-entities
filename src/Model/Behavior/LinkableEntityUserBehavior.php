@@ -6,15 +6,12 @@ use Cake\ORM\Entity;
 use Cake\Utility\Inflector;
 
 /**
- * LinkableEntityUser behavior
+ * Class LinkableEntityUserBehavior
+ * @package LinkedEntities\Model\Behavior
  */
 class LinkableEntityUserBehavior extends BehaviorBase
 {
     const METHOD_PREFIXES = ['add', 'remove'];
-    const PLUGIN = 'LinkedEntities';
-    const MODEL_NAME = 'LinkedEntities';
-    const MODEL_PROPERTY = 'linked_entities';
-    const FULL_MODEL_NAME = self::PLUGIN . '.' . self::MODEL_NAME;
 
     public function initialize(array $config)
     {
@@ -24,7 +21,7 @@ class LinkableEntityUserBehavior extends BehaviorBase
 
     protected function associateUser()
     {
-        $this->getTable()->hasMany('LinkedEntities', ['className' => self::FULL_MODEL_NAME]);
+        $this->getTable()->hasMany(self::MODEL_NAME, ['className' => self::FULL_MODEL_NAME]);
 
         $links = $this->getConfig('links');
 
@@ -64,8 +61,7 @@ class LinkableEntityUserBehavior extends BehaviorBase
         $prefix = $this->getMethodPrefix($name);
         $modelAlias = str_replace($prefix, '', $name);
 
-        if (
-            in_array($prefix, self::METHOD_PREFIXES) &&
+        if (in_array($prefix, self::METHOD_PREFIXES) &&
             $this->isValidAlias($modelAlias)
         ) {
             $method = $prefix . 'EntityLink';

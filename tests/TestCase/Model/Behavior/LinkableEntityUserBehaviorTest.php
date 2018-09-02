@@ -2,6 +2,7 @@
 
 namespace LinkedEntities\Test\TestCase\Model\Behavior;
 
+use LinkedEntities\Model\Behavior\BehaviorBase;
 use LinkedEntities\Model\Behavior\LinkableEntityUserBehavior;
 use LinkedEntities\TestSuite\TestCase;
 
@@ -19,8 +20,8 @@ class LinkableEntityUserBehaviorTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->UsersTable->addBehavior(self::USER_BEHAVIOR_NAME, $this->behavior_config);
-        $this->LinkableEntityUserBehavior = $this->UsersTable->getBehavior(self::USER_BEHAVIOR);
+        $this->UsersTable->addBehavior(BehaviorBase::USER_BEHAVIOR_NAME, $this->behavior_config);
+        $this->LinkableEntityUserBehavior = $this->UsersTable->getBehavior(BehaviorBase::USER_BEHAVIOR);
     }
 
     /**

@@ -1,19 +1,22 @@
 <?php
+
 namespace LinkedEntities\Model\Entity;
 
+use Cake\I18n\FrozenTime;
 use Cake\ORM\Entity;
 
 /**
- * LinkedEntity Entity
+ * Class LinkedEntity
+ * @package LinkedEntities\Model\Entity
  *
  * @property string $id
  * @property string $user_id
  * @property int $type
  * @property string $foreign_model
  * @property string $foreign_key
- * @property \Cake\I18n\FrozenTime $created
- * @property \Cake\I18n\FrozenTime $modified
- * @property \Cake\I18n\FrozenTime $deleted
+ * @property FrozenTime $created
+ * @property FrozenTime $modified
+ * @property FrozenTime $deleted
  */
 class LinkedEntity extends Entity
 {
