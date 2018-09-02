@@ -1,11 +1,10 @@
 <?php
+
 namespace LinkedEntities\Model\Behavior;
 
-use Cake\ORM\Behavior;
-use Cake\ORM\Table;
-
 /**
- * LinkableEntity behavior
+ * Class LinkableEntityBehavior
+ * @package LinkedEntities\Model\Behavior
  */
 class LinkableEntityBehavior extends BehaviorBase
 {

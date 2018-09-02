@@ -6,6 +6,7 @@ use Cake\Core\Configure;
 use Cake\ORM\Table;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase as CakeTestCase;
+use LinkedEntities\Model\Behavior\BehaviorBase;
 use LinkedEntities\Model\Table\LinkedEntitiesTable;
 
 /**
@@ -14,12 +15,6 @@ use LinkedEntities\Model\Table\LinkedEntitiesTable;
  */
 class TestCase extends CakeTestCase
 {
-    const PLUGIN_NAME = 'LinkedEntities';
-    const USER_BEHAVIOR = 'LinkableEntityUser';
-    const USER_BEHAVIOR_NAME = self::PLUGIN_NAME . '.' . self::USER_BEHAVIOR;
-    const ENTITY_BEHAVIOR = 'LinkableEntity';
-    const ENTITY_BEHAVIOR_NAME = self::PLUGIN_NAME . '.' . self::ENTITY_BEHAVIOR;
-
     /**
      * Fixtures to load.
      *
@@ -74,7 +69,7 @@ class TestCase extends CakeTestCase
     {
         parent::setUp();
 
-        $this->default_config = Configure::read('LinkedEntities');
+        $this->default_config = Configure::read(BehaviorBase::PLUGIN_NAME);
         $this->UsersTable = TableRegistry::getTableLocator()->get('Users');
         $this->LinkedEntitiesTable = TableRegistry::getTableLocator()->get('Users');
     }

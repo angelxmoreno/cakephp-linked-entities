@@ -1,12 +1,10 @@
 {
   "name": "angelxmoreno/cakephp-linked-entities",
   "description": "LinkedEntities plugin for CakePHP 3.x",
-
   "homepage": "https://github.com/angelxmoreno/cakephp-linked-entities",
   "support": {
     "issues": "https://github.com/angelxmoreno/cakephp-linked-entities/issues"
   },
-
   "type": "cakephp-plugin",
   "extra": {
     "installer-name": "LinkedEntities"
@@ -24,7 +22,7 @@
     }
   ],
   "require": {
-    "php": ">=5.4",
+    "php": ">=5.6",
     "ext-json": "^1"
   },
   "require-dev": {
@@ -32,7 +30,9 @@
     "cakephp/cakephp": "^3.5",
     "squizlabs/php_codesniffer": "^3.3",
     "codeclimate/php-test-reporter": "^0.4.4",
-    "codacy/coverage": "^1.4"
+    "codacy/coverage": "^1.4",
+    "phpmd/phpmd": "^2.6",
+    "cakephp/cakephp-codesniffer": "^3.0"
   },
   "autoload": {
     "psr-4": {
@@ -48,8 +48,9 @@
   "prefer-stable": true,
   "scripts": {
     "test": "phpunit",
-    "tests:clover": "phpunit --coverage-clover tmp/coverage/coverage.xml",
-    "cs-check": "phpcs -p --standard=vendor/fig-r/psr2r-sniffer/PSR2R/ruleset.xml --ignore=/vendor/,/tmp/,/logs/ --extensions=php ./",
-    "cs-fix": "phpcbf -v --standard=vendor/fig-r/psr2r-sniffer/PSR2R/ruleset.xml --ignore=/vendor/,/tmp/,/logs/ --extensions=php ./"
+    "tests:clover": "phpunit --colors --coverage-clover tmp/coverage/coverage.xml",
+    "cs:check": "phpcs --standard=ruleset.xml",
+    "cs:fix": "phpcbf -v --standard=ruleset.xml",
+    "md:check": "phpmd . text phpmd.xml --exclude /vendor/,/tmp/,/logs/ --suffixes php --colors"
   }
 }

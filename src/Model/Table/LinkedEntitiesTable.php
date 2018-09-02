@@ -1,22 +1,23 @@
 <?php
+
 namespace LinkedEntities\Model\Table;
 
-use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use LinkedEntities\Model\Entity\LinkedEntity;
 
 /**
  * LinkedEntities Model
  *
- * @method \LinkedEntities\Model\Entity\LinkedEntity get($primaryKey, $options = [])
- * @method \LinkedEntities\Model\Entity\LinkedEntity newEntity($data = null, array $options = [])
- * @method \LinkedEntities\Model\Entity\LinkedEntity[] newEntities(array $data, array $options = [])
- * @method \LinkedEntities\Model\Entity\LinkedEntity|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \LinkedEntities\Model\Entity\LinkedEntity|bool saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \LinkedEntities\Model\Entity\LinkedEntity patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \LinkedEntities\Model\Entity\LinkedEntity[] patchEntities($entities, array $data, array $options = [])
- * @method \LinkedEntities\Model\Entity\LinkedEntity findOrCreate($search, callable $callback = null, $options = [])
+ * @method LinkedEntity get($primaryKey, $options = [])
+ * @method LinkedEntity newEntity($data = null, array $options = [])
+ * @method LinkedEntity[] newEntities(array $data, array $options = [])
+ * @method LinkedEntity|bool save(LinkedEntity $entity, $options = [])
+ * @method LinkedEntity|bool saveOrFail(LinkedEntity $entity, $options = [])
+ * @method LinkedEntity patchEntity(LinkedEntity $entity, array $data, array $options = [])
+ * @method LinkedEntity[] patchEntities($entities, array $data, array $options = [])
+ * @method LinkedEntity findOrCreate($search, callable $callback = null, $options = [])
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
@@ -43,8 +44,8 @@ class LinkedEntitiesTable extends Table
     /**
      * Default validation rules.
      *
-     * @param \Cake\Validation\Validator $validator Validator instance.
-     * @return \Cake\Validation\Validator
+     * @param Validator $validator Validator instance.
+     * @return Validator
      */
     public function validationDefault(Validator $validator)
     {
@@ -75,8 +76,8 @@ class LinkedEntitiesTable extends Table
      * Returns a rules checker object that will be used for validating
      * application integrity.
      *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
-     * @return \Cake\ORM\RulesChecker
+     * @param RulesChecker $rules The rules object to be modified.
+     * @return RulesChecker
      */
     public function buildRules(RulesChecker $rules)
     {

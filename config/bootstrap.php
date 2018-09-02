@@ -1,6 +1,7 @@
 <?php
 
 use Cake\Core\Configure;
+use LinkedEntities\Model\Behavior\BehaviorBase;
 
 $defaults = [
     'links' => [],
@@ -35,6 +36,5 @@ $defaults = [
     ]
 ];
 
-$config = Configure::read('LinkedEntities', []);
-Configure::write('LinkedEntities', array_merge($defaults, $config));
-
+$config = Configure::read(BehaviorBase::PLUGIN_NAME, []);
+Configure::write(BehaviorBase::PLUGIN_NAME, array_merge($defaults, $config));
