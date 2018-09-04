@@ -110,7 +110,7 @@ Settings have the following keys
  - linkType: the int value corresponding to one of the defined `link_types`
 
 ## Reporting Issues
-If you have a problem with DebugKit please open an issue on [GitHub](https://github.com/angelxmoreno/cakephp-linked-entities/issues).
+If you have a problem with the plugin please open an issue on [GitHub](https://github.com/angelxmoreno/cakephp-linked-entities/issues).
 
 ## License
 This plugin is offered under an [MIT license](https://opensource.org/licenses/mit-license.php).
